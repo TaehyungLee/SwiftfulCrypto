@@ -20,6 +20,8 @@ struct HomeView: View {
             // content layer
             VStack{
                 homeHeader
+                HomeStatsView(showPortfolio: $showPortfolio)
+                SearchBarView(searchText: $vm.searchText)
                 
                 columnTitle
                 
@@ -49,7 +51,7 @@ extension HomeView {
                     CircleButtonAnimationView(animate: $showPortfolio)
                 )
             Spacer()
-            Text(showPortfolio ? "Portpolio":"Live Prices")
+            Text(showPortfolio ? "Portfolio":"Live Prices")
                 .font(.headline)
                 .fontWeight(.heavy)
                 .foregroundColor(Color.theme.accent)
